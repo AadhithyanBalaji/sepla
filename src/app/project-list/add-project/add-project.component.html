@@ -1,0 +1,50 @@
+<div class="add-project-container">
+    <mat-expansion-panel [expanded]="isExpanded" (closed)="panelClose()">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon>add</mat-icon> <span style="padding-left: 5px">Add a project</span>
+            </mat-panel-title>
+            <mat-panel-description>
+                Add your project to the backend
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="example-container">
+            <div class="form-container">
+                <form class="project-form" [formGroup]="projectForm" (submit)="submit()">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Name
+                        </mat-label>
+                        <input matInput formControlName="name" required>
+                        <mat-error *ngIf="projectForm.controls.name.touched && projectForm.controls.name.invalid">
+                            <span *ngIf="projectForm.controls.name.errors.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Target Date
+                        </mat-label>
+                        <!-- <input matInput formControlName="targetDate" type="date"> -->
+                        <input matInput formControlName="targetDate" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Location</mat-label>
+                        <input matInput type="text" formControlName="location" required>
+                        <mat-error *ngIf="projectForm.controls.location.touched && projectForm.controls.location.invalid">
+                            <span *ngIf="projectForm.controls.location.errors.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!-- <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Order Value</mat-label>
+                        <input matInput type="text" formControlName="orderValue" class="right-align" required>
+                        <span class="input-ffixes" matPrefix>&#8377;&nbsp;</span>
+                        <mat-error *ngIf="projectForm.controls.orderValue.touched && projectForm.controls.orderValue.invalid">
+                            <span *ngIf="projectForm.controls.orderValue.errors.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field> -->
+                    <button class="projectAddBtn" mat-raised-button color="primary" type="submit" cdkFocusInitial>Save</button>
+                </form>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-container">
+    <form class="project-form" [formGroup]="form" (submit)="submit()">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Name
+            </mat-label>
+            <input matInput formControlName="name" required>
+            <mat-error *ngIf="form.controls.name.touched && form.controls.name.invalid">
+                <span *ngIf="form.controls.name.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+        <button class="projectAddBtn" mat-raised-button color="primary" type="submit" cdkFocusInitial>Save</button>
+    </form>
+</div>

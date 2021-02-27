@@ -1,0 +1,171 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>edit</mat-icon>
+        </div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>BoQ Editor</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="boq-editor-container">
+            <div style="background-color: white; padding: 10px">
+                <mat-form-field style="width: 98%">
+                    <mat-label>Pick materials for </mat-label>
+                    <input matInput [(ngModel)]="node.desc">
+                </mat-form-field>
+                <div class="metric-container">
+                    <mat-form-field class="">
+                        <mat-label>Qty</mat-label>
+                        <input matInput type="number" [(ngModel)]="node.qty" (change)="node.boq_order_amount = node.boq_order_rate * node.qty" disabled>
+                    </mat-form-field>
+                    <mat-form-field class="">
+                        <mat-label>Rate</mat-label>
+                        <input matInput type="number" [(ngModel)]="node.boq_order_rate" (change)="node.boq_order_amount = node.boq_order_rate * node.qty" disabled>
+                    </mat-form-field>
+                    <mat-form-field class="">
+                        <mat-label>Amount</mat-label>
+                        <input matInput [(ngModel)]="node.boq_order_amount" disabled>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-container">
+                <form class="form boq-material-list-form" [formGroup]="form" (submit)="submit()">
+                    <mat-form-field class="form-field material-form-field">
+                        <mat-label> Material name
+                        </mat-label>
+                        <input type="text" placeholder="Type to search materials" matInput [formControl]="form.get('name')" [matAutocomplete]="auto" required>
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="optionSelected($event)" (optionActivated)="optionActivated($event)">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <mat-form-field class="form-field qty-form-field">
+                        <mat-label> Qty
+                        </mat-label>
+                        <input matInput type="number" formControlName="qty" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label> Rate
+                        </mat-label>
+                        <input matInput formControlName="rate" required>
+                        <span class="input-ffixes" matPrefix>&#8377; &nbsp; </span>
+                    </mat-form-field>
+                    <button class="AddBtn" mat-raised-button color="primary" type="submit" cdkFocusInitial>Add</button>
+
+
+                </form>
+            </div>
+            <div class="table-container">
+                <table class="full-width-table" mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-mini-fab color="primary" aria-label="project delete button" (click)="delete(element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="material">
+                        <th mat-header-cell *matHeaderCellDef>Material</th>
+                        <td mat-cell *matCellDef="let element"> {{element.material}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="qty">
+                        <th mat-header-cell *matHeaderCellDef>Qty</th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-form-field class="form-field">
+                                <input matInput type="number" required [(ngModel)]="element.qty" [ngModelOptions]="{standalone: true}" (change)="onQtyUpdate(element)">
+                            </mat-form-field>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef>Price</th>
+                        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef> Amount
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.qty * element.price}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- <form class="form" [formGroup]="form" (submit)="submit()">
+                    <table class="full-width-table" mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef><button class="AddBtn" mat-raised-button color="primary" type="submit" cdkFocusInitial>Add</button></th>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-mini-fab color="primary" aria-label="project delete button" (click)="delete(element)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="material">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div>
+                                    <mat-form-field class="form-field material-form-field">
+                                        <mat-label> Material name
+                                        </mat-label>
+                                        <input type="text" placeholder="Type to search materials" matInput [formControl]="form.get('name')" [matAutocomplete]="auto" required>
+                                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="optionSelected($event)" (optionActivated)="optionActivated($event)">
+                                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                                {{option.name}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.material}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="qty">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-form-field class="form-field qty-form-field">
+                                    <mat-label> Qty
+                                    </mat-label>
+                                    <input matInput type="number" formControlName="qty" required>
+                                </mat-form-field>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-form-field class="form-field">
+                                    <input matInput type="number" required [(ngModel)]="element.qty" [ngModelOptions]="{standalone: true}" (change)="onQtyUpdate(element)">
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-form-field class="form-field rate-form-field">
+                                    <mat-label> Rate
+                                    </mat-label>
+                                    <input matInput formControlName="rate" required>
+                                    <span class="input-ffixes" matPrefix>&#8377; &nbsp; </span>
+                                </mat-form-field>
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="amount">
+                            <th mat-header-cell class="amount-header" *matHeaderCellDef> Amount
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.qty * element.price}} </td>
+                        </ng-container>
+        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </form> -->
+            </div>
+            <!-- <div class="save-btn-container">
+                <button class="save-btn" mat-raised-button color="primary" (click)="saveBoq()">Save</button>
+            </div> -->
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,159 @@
+.add-boq-tab-content {
+    min-height: 74vh;
+}
+
+mat-form-field {
+    padding: 0px 10px 0 10px;
+}
+
+.AddBtn {
+    vertical-align: super;
+}
+
+.add-boq-btn {
+    margin-top: 55px;
+}
+
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.tree-action-panel {
+    position: absolute;
+    right: 15px;
+}
+
+.mat-tree-node {
+    padding-top: 0px;
+}
+
+#add-boq-container {
+    margin: 15px 0px 15px 0px;
+}
+
+
+/* tree styles */
+
+.tree-container {
+    width: 100%;
+}
+
+.selected-node {
+    background: lightgray;
+}
+
+.center-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    /* padding: 40px 0px 40px 0px; */
+}
+
+.child-node-title {
+    word-break: break-word;
+    max-width: 30vw;
+    margin: 0px;
+}
+
+.anchor-element {
+    word-break: break-word;
+    margin: 0px;
+    text-decoration: none;
+    max-width: 25vw;
+    color: rgba(0, 0, 0, .87);
+    cursor: pointer;
+}
+
+
+/* form styles */
+
+.form {
+    width: 60%;
+}
+
+.mat-grid-tile {
+    overflow: auto !important;
+}
+
+
+/* card styles */
+
+
+/* excel expander styles */
+
+.excel-import-container {
+    position: absolute;
+    z-index: 99999999;
+    width: 99%;
+    margin: 5px;
+}
+
+.excel-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.col-form-field {
+    text-align: center;
+}
+
+.excel-table-column {
+    width: 6vw;
+}
+
+.excel-table-column-small {
+    min-width: 3vw;
+    max-width: 5vw;
+}
+
+.td-div {
+    max-width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.td-div-large {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.import-btn-container {
+    display: inline-block;
+}
+
+.imported-data-view {
+    margin-top: 15px;
+}
+
+.error-msg {
+    margin-right: 15px;
+    color: red;
+    font-size: small;
+}
+
+
+/* general styles */
+
+.float-right {
+    float: right;
+}
+
+::ng-deep .mat-dialog-container {
+    overflow-y: hidden !important;
+    overflow: hidden !important;
+}
+
+.full-width-table {
+    width: 100%;
+}

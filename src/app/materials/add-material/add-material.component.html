@@ -1,0 +1,78 @@
+<div class="form-container center-element">
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Name
+            </mat-label>
+            <input matInput formControlName="name" required>
+            <mat-error *ngIf="form.controls.name.touched && form.controls.name.invalid">
+                <span *ngIf="form.controls.name.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Brand
+            </mat-label>
+            <input type="text" placeholder="Type to search Brands" matInput [formControl]="form.get('brand')" [matAutocomplete]="auto" required>
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="form.controls.brand.touched && form.controls.brand.invalid">
+                <span *ngIf="form.controls.brand.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> MRP
+            </mat-label>
+            <input type="number" matInput formControlName="mrp" required>
+            <mat-error *ngIf="form.controls.mrp.touched && form.controls.mrp.invalid">
+                <span *ngIf="form.controls.mrp.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Price escalation
+            </mat-label>
+            <input type="number" matInput formControlName="price_escalation" required>
+            <span class="input-ffixes" matSuffix>&nbsp; %</span>
+            <mat-error *ngIf="form.controls.price_escalation.touched && form.controls.price_escalation.invalid">
+                <span *ngIf="form.controls.price_escalation.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Discount
+            </mat-label>
+            <input type="number" matInput formControlName="discount" required>
+            <span class="input-ffixes" matSuffix>&nbsp; %</span>
+            <mat-error *ngIf="form.controls.discount.touched && form.controls.discount.invalid">
+                <span *ngIf="form.controls.discount.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Accessory Rate
+            </mat-label>
+            <input type="number" matInput formControlName="acc" required>
+            <span class="input-ffixes" matSuffix>&nbsp; %</span>
+            <mat-error *ngIf="form.controls.acc.touched && form.controls.acc.invalid">
+                <span *ngIf="form.controls.acc.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Purchase Rate
+            </mat-label>
+            <input type="number" matInput formControlName="purchaseRate">
+            <mat-error *ngIf="form.controls.purchaseRate.touched && form.controls.purchaseRate.invalid">
+                <span *ngIf="form.controls.purchaseRate.errors.required">This field is mandatory.</span>
+            </mat-error>
+        </mat-form-field>
+
+
+        <button class="AddBtn" mat-raised-button color="primary" type="submit" cdkFocusInitial>Save</button>
+    </form>
+</div>

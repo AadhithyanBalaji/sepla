@@ -1,0 +1,64 @@
+<mat-card class="project-list">
+
+    <mat-card-title-group>
+        <mat-card-title>Projects</mat-card-title>
+    </mat-card-title-group>
+
+    <mat-card-content>
+
+        <app-add-project *ngIf="!isLoading"></app-add-project>
+
+        <div class="mat-elevation-z8">
+            <table mat-table matSort [dataSource]="dataSource" class="full-width-table" matSortStart="desc">
+                <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column | spacer}} </th>
+                    <td mat-cell *matCellDef="let element">
+                        <app-t-d [column]="column" [element]="element" (deleteProject)="deleteProject($event)" (editProject)="editProject($event)"></app-t-d>
+                    </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length" style="background-color: gray;">
+                        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                            <ng-container *ngIf="expandedElement === element">
+                                <mat-tab-group mat-align-tabs="center" style="width:100%; background-color: white;margin:10px;">
+                                    <mat-tab label="Materials">
+                                        <app-materials [element]="element"></app-materials>
+                                    </mat-tab>
+                                    <mat-tab label="BOQ">
+                                        <app-boq-list [element]="element"></app-boq-list>
+                                    </mat-tab>
+                                    <mat-tab label="Labour">
+                                        <app-labour></app-labour>
+                                    </mat-tab>
+                                </mat-tab-group>
+                            </ng-container>
+                        </div>
+                    </td>
+                </ng-container> -->
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <!-- <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row" 
+                [class.example-expanded-row]="expandedElement === element" 
+                    (click)="expandRow(element)">
+                </tr> -->
+                <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row" (click)="openProject(element)">
+                </tr>
+                <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr> -->
+            </table>
+            <mat-paginator *ngIf="!isLoading && dataSource.data.length !== 0" [pageSizeOptions]="[25, 50, 100, 250]">
+            </mat-paginator>
+
+            <div *ngIf="isLoading" class="center-element">
+                <mat-progress-spinner color="primary" mode="indeterminate">
+                </mat-progress-spinner>
+            </div>
+
+            <div *ngIf="!isLoading && dataSource.data.length == 0" class="center-element">
+                <h1>No data found</h1>
+            </div>
+
+        </div>
+
+    </mat-card-content>
+</mat-card>

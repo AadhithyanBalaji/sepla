@@ -1,0 +1,15 @@
+mat-form-field {
+    padding: 0px 10px 0 10px;
+}
+
+.center-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 40px 0px 40px 0px;
+}
+
+.AddBtn {
+    vertical-align: super;
+}

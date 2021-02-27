@@ -1,0 +1,48 @@
+<div>
+    <div *ngIf="!isLoading">
+        <!-- <div class="add-collection-container">
+            <button mat-mini-fab color="primary" aria-label="project edit button" (click)="navigateToAddElement()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div> -->
+
+        <mat-form-field *ngIf="dataSource.data.length !== 0">
+            <mat-label>
+                <mat-icon>search</mat-icon>
+            </mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search for {{collection}}" #input>
+        </mat-form-field>
+        <table class="full-width-table" mat-table [dataSource]="dataSource" matSort matSortStart="desc">
+            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column | spacer}} </th>
+                <td mat-cell *matCellDef="let element">
+                    <p *ngIf="!isAction(column)">
+                        {{element[column]}}
+                    </p>
+                    <p *ngIf="isAction(column)">
+                        <button mat-mini-fab color="primary" aria-label="project edit button" (click)="editElement(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="primary" aria-label="project delete button" (click)="deleteElement(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </p>
+                </td>
+            </ng-container>
+            <tr class="mat-row" class="center-element" *matNoDataRow>
+                <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length !== 0">No data matching the filter "{{input.value}}"</td>
+                <td *ngIf="dataSource.data.length === 0">No data found</td>
+            </tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <!-- <mat-paginator *ngIf="!isLoading && dataSource.data.length !== 0" pageSize="8" [pageSizeOptions]="[25, 50, 100, 250]">
+    </mat-paginator> -->
+        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"></mat-paginator>
+    </div>
+
+    <div *ngIf="isLoading" class="center-element">
+        <mat-progress-spinner color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+</div>

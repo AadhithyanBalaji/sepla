@@ -1,0 +1,29 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+
+/* mat-grid-tile {
+    background: lightblue;
+  }
+  .filler-tile{
+      background: green;
+  } */
+
+.grid {
+    position: relative;
+    top: 20%;
+}
+
+.flex-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-cards app-metric-card {
+    padding: 10px;
+}
+
+.example-icon {}

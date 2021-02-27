@@ -1,0 +1,27 @@
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+mat-form-field {
+    padding: 0px 10px 0 10px;
+}
+
+.projectAddBtn {
+    vertical-align: super;
+}
+
+.right-align {
+    text-align: right;
+}
+
+
+/* 
+.input-ffixes {
+    font-size: 25px;
+} */
+
+.add-project-container {
+    padding: 10px 0px 10px 0px;
+}

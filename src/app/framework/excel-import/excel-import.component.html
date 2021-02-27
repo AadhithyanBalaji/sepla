@@ -1,0 +1,15 @@
+<div class="excel-input-container">
+    <button type="button" mat-raised-button (click)="inputFile.click()">
+        <mat-icon>file</mat-icon> Choose File
+    </button>
+    <input hidden type="file" (change)="onChange($event)" #inputFile>
+
+    <div *ngIf="isExcelFile === false">
+        This is not an Excel file
+    </div>
+
+    <div *ngIf="spinnerEnabled" class="">
+        <mat-progress-spinner color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+</div>

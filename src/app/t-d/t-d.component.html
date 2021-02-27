@@ -1,0 +1,11 @@
+<p *ngIf="!isAction">
+    {{element[column]}}
+</p>
+<p *ngIf="isAction">
+    <button mat-mini-fab color="primary" aria-label="project edit button" (click)="edit()">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" aria-label="project delete button" (click)="delete()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</p>

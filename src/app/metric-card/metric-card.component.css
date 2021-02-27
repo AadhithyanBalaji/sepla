@@ -1,0 +1,10 @@
+.metrics-number{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.mat-card-title{
+    font-size: 15px !important;
+    font-weight: 100 !important;
+  }

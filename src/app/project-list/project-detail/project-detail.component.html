@@ -1,0 +1,17 @@
+<div class="project-detail-tab">
+    <a href="#" style="float: right;">
+        <mat-icon>close</mat-icon>
+    </a>
+    <mat-tab-group mat-align-tabs="center" style="width:100%; background-color: white;margin:10px;">
+        <mat-tab label="Materials">
+            <app-materials [element]="element"></app-materials>
+        </mat-tab>
+        <mat-tab label="BOQ">
+            <!-- <app-boq-list [element]="element"></app-boq-list> -->
+            <app-add-boq [projectId]="element.id"></app-add-boq>
+        </mat-tab>
+        <mat-tab label="Labour">
+            <app-labour></app-labour>
+        </mat-tab>
+    </mat-tab-group>
+</div>

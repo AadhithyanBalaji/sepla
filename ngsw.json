@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1617639071775,
+  "timestamp": 1618756787430,
   "index": "https://aadhithyanbalaji.github.io/sepla/index.html",
   "assetGroups": [
     {
@@ -14,15 +14,11 @@
         "https://aadhithyanbalaji.github.io/sepla/4.704c0e4ac8fee8ecc61e.js",
         "https://aadhithyanbalaji.github.io/sepla/favicon.ico",
         "https://aadhithyanbalaji.github.io/sepla/index.html",
-        "https://aadhithyanbalaji.github.io/sepla/main.0b4cd13d8c3346092b25.js",
-        "https://aadhithyanbalaji.github.io/sepla/main.f7eb0a33584903783e70.js",
+        "https://aadhithyanbalaji.github.io/sepla/main.bf0b180cf713396e382f.js",
         "https://aadhithyanbalaji.github.io/sepla/manifest.webmanifest",
-        "https://aadhithyanbalaji.github.io/sepla/ngsw-worker.js",
         "https://aadhithyanbalaji.github.io/sepla/polyfills.807c48cc014ab0be6389.js",
         "https://aadhithyanbalaji.github.io/sepla/runtime.8927aa692754d6d087c1.js",
-        "https://aadhithyanbalaji.github.io/sepla/safety-worker.js",
-        "https://aadhithyanbalaji.github.io/sepla/styles.5b1483d509ef06ae23b1.css",
-        "https://aadhithyanbalaji.github.io/sepla/worker-basic.min.js"
+        "https://aadhithyanbalaji.github.io/sepla/styles.5b1483d509ef06ae23b1.css"
       ],
       "patterns": []
     },
@@ -58,16 +54,12 @@
     "https://aadhithyanbalaji.github.io/sepla/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://aadhithyanbalaji.github.io/sepla/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://aadhithyanbalaji.github.io/sepla/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://aadhithyanbalaji.github.io/sepla/index.html": "f16b32c9034642b52a4f73a252c1be9d3b03e6e4",
-    "https://aadhithyanbalaji.github.io/sepla/main.0b4cd13d8c3346092b25.js": "ac8f128fe867604055d8bfb4db9f3dfac8586a22",
-    "https://aadhithyanbalaji.github.io/sepla/main.f7eb0a33584903783e70.js": "dbee5f57177e17116aaa53f9909e96090e56d479",
-    "https://aadhithyanbalaji.github.io/sepla/manifest.webmanifest": "8b5d02302172f5407f0beda7456b1ba61162346a",
-    "https://aadhithyanbalaji.github.io/sepla/ngsw-worker.js": "601253069e8f1d4f717e0bd54332587669d68261",
+    "https://aadhithyanbalaji.github.io/sepla/index.html": "9fbcf00f4de56f5bef6a6948afcd6466de57226e",
+    "https://aadhithyanbalaji.github.io/sepla/main.bf0b180cf713396e382f.js": "d363e9d1b8d29079b6fa7e896269beef6d064ca8",
+    "https://aadhithyanbalaji.github.io/sepla/manifest.webmanifest": "743e3533bfaec6d2c868fb6ec90604fc66768aff",
     "https://aadhithyanbalaji.github.io/sepla/polyfills.807c48cc014ab0be6389.js": "7c74e34e322aefa9f0dd6a15ecea46617b21dc63",
     "https://aadhithyanbalaji.github.io/sepla/runtime.8927aa692754d6d087c1.js": "f31720cb3938223b6c208ba330eeb898174413f3",
-    "https://aadhithyanbalaji.github.io/sepla/safety-worker.js": "f532926317210be6e2679d21748dc44a35389807",
-    "https://aadhithyanbalaji.github.io/sepla/styles.5b1483d509ef06ae23b1.css": "b0bfb1465b13286b4ea6dbcb4ae982db55f50f27",
-    "https://aadhithyanbalaji.github.io/sepla/worker-basic.min.js": "f532926317210be6e2679d21748dc44a35389807"
+    "https://aadhithyanbalaji.github.io/sepla/styles.5b1483d509ef06ae23b1.css": "b0bfb1465b13286b4ea6dbcb4ae982db55f50f27"
   },
   "navigationUrls": [
     {
